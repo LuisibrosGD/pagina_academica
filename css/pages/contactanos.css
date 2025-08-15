@@ -1,0 +1,121 @@
+/* Sección de contacto */
+#contact-us {
+  padding: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  animation: slideUp 1s ease-out forwards; /* Animación de entrada */
+}
+
+/* Contenedor de la sección */
+.contact-container {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.contact-message h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Párrafo principal */
+.contact-message p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* CTA (Call To Action) */
+.cta {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-button {
+  background-color: #25d366; /* Color de WhatsApp */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  animation: pulseButton 1.5s infinite; /* Animación de pulso */
+}
+
+.whatsapp-button:hover {
+  background-color: #128c7e; /* Cambio de color al hacer hover */
+  transform: scale(1.05); /* Efecto de "crecer" al pasar el mouse */
+}
+
+/* Icono de WhatsApp */
+.bi-whatsapp {
+  font-size: 1.5rem;
+}
+
+/* Animación de la sección que sube desde abajo */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animación de fade-in para el texto */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Estilos responsivos para dispositivos pequeños */
+@media (max-width: 768px) {
+  #contact-us {
+    padding: 20px;
+  }
+
+  .contact-message h2 {
+    font-size: 2rem;
+  }
+
+  .contact-message p {
+    font-size: 1rem;
+  }
+
+  .cta {
+    font-size: 1.1rem;
+  }
+
+  .whatsapp-button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+  }
+}

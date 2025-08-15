@@ -1,0 +1,95 @@
+/* Sección que contiene las cartas */
+#cards-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centra las cartas horizontalmente */
+  align-items: center; /* Centra las cartas verticalmente */
+  flex-direction: column; /* Por defecto, las cartas estarán en una sola columna */
+  height: 100vh; /* Asegura que la sección ocupe todo el alto de la ventana */
+  box-sizing: border-box; /* Incluye el borde y el relleno dentro del tamaño total */
+}
+
+/* Contenedor de las cartas */
+.card-container {
+  display: flex;
+  justify-content: center; /* Centra las cartas horizontalmente */
+  align-items: center; /* Centra las cartas verticalmente */
+  flex-wrap: wrap; /* Permite que las cartas se envuelvan cuando no haya suficiente espacio */
+  gap: 20px; /* Espacio entre las cartas */
+  width: 100%; /* Ocupa todo el espacio disponible */
+  max-width: 1200px; /* Ancho máximo para las cartas */
+  margin: 0 auto; /* Centra el contenedor de las cartas */
+  box-sizing: border-box; /* Asegura que el contenedor tenga en cuenta el relleno y el borde */
+}
+
+/* Estilo de las cartas */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Imagen arriba, texto abajo */
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(
+    -10px
+  ); /* Efecto de hover que mueve la carta hacia arriba */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el mouse */
+}
+
+/* Ajuste del contenido de la carta (Texto) */
+.card-content {
+  padding: 15px;
+  flex: 1; /* La parte del texto ocupa el espacio restante */
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Ajuste de la imagen en la carta */
+.card-image {
+  flex-shrink: 0; /* La imagen no se encoge */
+  width: 300px; /* Ajusta el tamaño de la imagen */
+  height: 200px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+  object-position: center; /* Centra la imagen para mantener su enfoque */
+}
+
+/* Estilo para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Las cartas se apilarán en una sola columna */
+    align-items: center; /* Centrar las cartas en pantallas pequeñas */
+  }
+
+  .card {
+    max-width: 100%; /* Las cartas ocuparán el 100% del contenedor en pantallas pequeñas */
+    flex-direction: column; /* Cambia el orden, poniendo la imagen debajo del texto */
+  }
+
+  .card-image {
+    width: 100%; /* La imagen ocupará el 100% del contenedor */
+    height: 250px; /* Ajusta la altura para dispositivos pequeños */
+  }
+}

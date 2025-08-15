@@ -1,0 +1,84 @@
+/* Sección que contiene las cartas */
+#cards-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Por defecto, las cartas estarán en una sola columna */
+}
+
+/* Contenedor de las cartas */
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre las cartas */
+  flex-wrap: wrap; /* Permite que las cartas se envuelvan en pantallas pequeñas */
+  gap: 20px; /* Espacio entre las cartas */
+  max-width: 1200px; /* Ancho máximo para las cartas */
+  width: 100%;
+}
+
+/* Estilo de las cartas */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(
+    -10px
+  ); /* Efecto de hover que mueve la carta hacia arriba */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el mouse */
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  padding: 10px 20px;
+  background-color: #fff15e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #ffd75e; /* Fondo amarillo al pasar el mouse */
+}
+
+/* Estilo para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Las cartas se apilarán en una sola columna */
+    align-items: center; /* Centrar las cartas en pantallas pequeñas */
+  }
+
+  .card {
+    max-width: 100%; /* Las cartas ocuparán el 100% del contenedor en pantallas pequeñas */
+  }
+}

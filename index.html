@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Norioma</title>
+    <link
+      rel="icon"
+      href="src/assets/icons/Norioma Logo.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="css/templates/nav_footer.css" />
+    <link rel="stylesheet" href="css/pages/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <div class="contenedor-nav"></div>
+
+    <!-- CONTENIDO -->
+    <section id="hero">
+      <div class="card-carrusel">
+        <!--Carrusel de imagenes-->
+        <div class="carousel-images" id="carousel">
+          <img src="src/assets/images/carrusel-1.jpeg" alt="imagen1" />
+          <img src="src/assets/images/carrusel-2.jpeg" alt="imagen2" />
+          <img src="src/assets/images/carrusel-3.jpeg" alt="imagen3" />
+        </div>
+        <!-- Controles de navegación -->
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+        <!-- Indicadores de las imágenes -->
+        <div class="carousel-indicators">
+          <span class="indicator" onclick="currentSlide(0)"></span>
+          <span class="indicator" onclick="currentSlide(1)"></span>
+          <span class="indicator" onclick="currentSlide(2)"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="card-1">
+      <div id="card-1-column-1">
+        <h3>¡Da el primer paso hacia tu futuro universitario con nosotros!</h3>
+        <p>
+          En Norioma, sabemos lo importante que es una preparación de calidad.
+          Únete a nuestro programa de preparación preuniversitaria y accede a:
+        </p>
+        <ul>
+          <li>Clases personalizadas con docentes expertos.</li>
+          <li>
+            Simulacros de examen para que estés listo para enfrentar cualquier
+            desafío.
+          </li>
+          <li>Atención individualizada que te ayudará a alcanzar tus metas.</li>
+        </ul>
+        <input type="button" value="Inscribirse" />
+      </div>
+      <div id="card-1-column-2">
+        <img src="" alt="imagen_like" />
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="contenedor-footer"></div>
+  </body>
+  <script src="js/modules/nav_footer.js"></script>
+  <script src="js/main.js"></script>
+</html>
