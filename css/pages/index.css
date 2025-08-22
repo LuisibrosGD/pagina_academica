@@ -131,23 +131,30 @@ button:hover {
   margin: 10px;
 }
 
-#card-1-column-1 input[type="button"] {
-  background-color: #ffc245;
+#btn-inscribirse {
+  display: inline-block;
+  background-color: #25d366; /* Verde WhatsApp */
   border: none;
   padding: 10px 20px;
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 20px;
-  transition: transform 0.3s ease; /* Transición suave para el hover */
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: white; /* Texto blanco */
+  font-weight: bold;
 }
 
-/* Cambio de tamaño y color al pasar el mouse sobre el botón */
-#card-1-column-1 input[type="button"]:hover {
-  transform: scale(
-    1.05
-  ); /* El botón se agranda ligeramente al pasar el mouse */
-  background-color: #ffe680; /* Fondo del botón cambia al pasar el mouse */
+#btn-inscribirse i {
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+  font-size: 22px; /* Tamaño del logo */
+  vertical-align: middle;
+}
+
+#btn-inscribirse:hover {
+  transform: scale(1.05);
+  background-color: #1ebe5d; /* Verde más oscuro al pasar */
 }
 /* Columna 2: Imagen */
 .card-1-column-2 {
