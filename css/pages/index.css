@@ -168,3 +168,28 @@ button:hover {
   height: auto;
   border-radius: 10px; /* Opcional: bordes redondeados en la imagen */
 }
+
+/* Boton flotante whatsapp===================================================*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px; /* Distancia desde abajo */
+  right: 30px; /* Distancia desde la derecha */
+  background-color: #25d366; /* Verde WhatsApp */
+  color: white;
+  border-radius: 50%; /* Circular */
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000; /* Para que esté encima de todo */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
