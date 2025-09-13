@@ -3,9 +3,9 @@
   padding: 20px;
   display: flex;
   justify-content: center; /* Centra las cartas horizontalmente */
-  align-items: center; /* Centra las cartas verticalmente */
+  align-items: flex-start; /* Centra las cartas verticalmente */
   flex-direction: column; /* Por defecto, las cartas estarán en una sola columna */
-  height: 100vh; /* Asegura que la sección ocupe todo el alto de la ventana */
+  min-height: 100vh;
   box-sizing: border-box; /* Incluye el borde y el relleno dentro del tamaño total */
 }
 
