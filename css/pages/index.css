@@ -42,7 +42,8 @@ body {
 }
 
 /* Botones de navegación */
-button {
+.card-carrusel button {
+  /* Ahora solo afecta a botones dentro del carrusel */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -56,15 +57,17 @@ button {
   border-radius: 35%;
 }
 
-button.prev {
+.card-carrusel .prev {
+  /* Selector más específico */
   left: 10px;
 }
 
-button.next {
+.card-carrusel .next {
+  /* Selector más específico */
   right: 10px;
 }
 
-button:hover {
+.card-carrusel button:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -103,12 +106,13 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 10px;
+  background: linear-gradient(#ffe680 1%, #f9f9f9 20%, #f9f9f9 100%);
 }
 
 #card-1-column1 {
-  flex: 1;
+  flex-grow: 1; /* Permite que la columna crezca */
+  flex-shrink: 1; /* Permite que la columna se encoja */
+  flex-basis: 50%; /* Establece el tamaño base en 50% */
   margin-right: 20px;
 }
 
@@ -157,16 +161,23 @@ button:hover {
   background-color: #1ebe5d; /* Verde más oscuro al pasar */
 }
 /* Columna 2: Imagen */
-.card-1-column-2 {
-  flex: 1; /* También ocupa el 50% del espacio disponible */
+#card-1-column-2 {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
-.card-1-column-2 img {
-  max-width: 100%; /* Asegura que la imagen no se desborde */
+#card-1-column-2 img {
+  /* Mantiene la imagen flexible y evita que se estire más allá de su contenedor */
+  max-width: 100%;
+  /* Le da un ancho máximo para que no crezca demasiado en pantallas grandes */
+  width: 400px;
+  /* Ajusta la altura automáticamente para mantener la proporción */
   height: auto;
-  border-radius: 10px; /* Opcional: bordes redondeados en la imagen */
+  /* Asegura que la imagen se ajuste y cubra el área sin distorsionarse */
+  object-fit: cover;
+  /* Borde redondeado */
+  border-radius: 10px;
 }
 
 /* Boton flotante whatsapp===================================================*/
@@ -192,4 +203,86 @@ button:hover {
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================================================================*/
+/* ESTILOS Y ANIMACIÓN PARA LA SECCIÓN DE CONTACTO          */
+/* ==================================================================*/
+
+#contact-us {
+  padding: 50px 20px;
+  background-color: #f9f9f9; /* Un color de fondo suave para distinguirlo */
+  text-align: center;
+  /* La siguiente línea es la clave para la animación */
+  animation: slideUp 1s ease-out forwards;
+  /* Iniciamos la sección con opacidad 0 para que no aparezca de golpe */
+  opacity: 0;
+}
+
+/* Definición de la animación "slideUp" */
+@keyframes slideUp {
+  from {
+    /* Estado inicial: invisible y 50px más abajo de su posición final */
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    /* Estado final: completamente visible y en su posición original */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.contact-message h2 {
+  font-size: 2.5rem; /* Un poco más grande para llamar la atención */
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.contact-message p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-message .cta {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #1a1a1a;
+}
+
+/* He modificado el input para que parezca un botón real con texto */
+.whatsapp-button {
+  /* --- CAMBIOS CLAVE --- */
+  display: flex; /* 1. Lo convierte en un bloque y alinea su contenido */
+  margin-left: auto; /* 2. Estas dos líneas centran el botón */
+  margin-right: auto;
+  justify-content: center; /* 3. Centra el contenido (icono y texto) DENTRO del botón */
+
+  /* --- Estilos que ya teníamos --- */
+  align-items: center; /* Alinea verticalmente el contenido del botón */
+  gap: 10px; /* Espacio entre icono y texto */
+  margin-top: 25px; /* Espacio para separarlo del párrafo de arriba */
+  padding: 15px 30px;
+  max-width: 350px; /* Un ancho máximo para que no sea demasiado grande en pantallas anchas */
+
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none; /* Por si lo cambias a una etiqueta <a> */
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.05);
+  background-color: #1ebe5d;
 }
