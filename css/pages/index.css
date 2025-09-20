@@ -6,7 +6,7 @@ body {
 
 /* Sección hero ==================================================================*/
 #hero {
-  background: linear-gradient(180deg, #fff5d4 0%, #ffe680 100%);
+  background: #f6d001;
   height: 70vh; /* Ocupa el 100% de la altura de la ventana */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
@@ -135,31 +135,6 @@ body {
   margin: 10px;
 }
 
-#btn-inscribirse {
-  display: inline-block;
-  background-color: #25d366; /* Verde WhatsApp */
-  border: none;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-  transition: transform 0.3s ease, background 0.3s ease;
-  text-decoration: none;
-  color: white; /* Texto blanco */
-  font-weight: bold;
-}
-
-#btn-inscribirse i {
-  margin-right: 8px; /* Espacio entre el icono y el texto */
-  font-size: 22px; /* Tamaño del logo */
-  vertical-align: middle;
-}
-
-#btn-inscribirse:hover {
-  transform: scale(1.05);
-  background-color: #1ebe5d; /* Verde más oscuro al pasar */
-}
 /* Columna 2: Imagen */
 #card-1-column-2 {
   flex: 1;
