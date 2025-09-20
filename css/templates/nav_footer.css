@@ -30,7 +30,7 @@ nav {
   height: 64px;
   font-size: 1.2rem;
   width: 100%;
-  background: linear-gradient(#ffe680 0.2%, #fff5d4 70%);
+  background: #f6d001;
   padding: 1rem;
 }
 
@@ -40,21 +40,25 @@ nav {
   align-items: center;
   gap: 15px;
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 .logo-nav img {
-  width: 50px;
+  width: 30%;
   height: auto;
-  border-radius: 5px;
+  display: block;
+  cursor: pointer;
 }
 
-.logo-nav a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-left: 20px;
-  text-decoration: none;
-  color: inherit; /* Evita cambiar color de texto en el logo */
+.logo-nav img:hover {
+  background: #ebc601;
+  border-radius: 12px;
+}
+
+.logo-nav .logo-a {
+  display: inline;
+  padding: 0;
+  margin: 0;
 }
 
 /* Lista de navegación */
@@ -72,6 +76,7 @@ nav ul {
   border-radius: 10px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
 }
 
 .lista-a:hover {
@@ -172,4 +177,15 @@ footer {
   justify-content: center;
   width: 100%;
   padding-bottom: 20px;
+}
+
+/*============== Resaltando elementos =====================*/
+.resaltar-nav {
+  background: #858585;
+  color: #ffd145;
+}
+
+.resaltar-nav:hover {
+  color: #4d4d4d;
+  background: #ccbe8d;
 }

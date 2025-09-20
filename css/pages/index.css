@@ -6,7 +6,7 @@ body {
 
 /* Sección hero ==================================================================*/
 #hero {
-  background: linear-gradient(180deg, #fff5d4 0%, #ffe680 100%);
+  background: #f6d001;
   height: 70vh; /* Ocupa el 100% de la altura de la ventana */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
