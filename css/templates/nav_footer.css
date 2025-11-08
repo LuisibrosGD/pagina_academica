@@ -203,6 +203,18 @@ footer {
 
 @media (max-width: 768px) {
   /* --- NAV RESPONSIVE --- */
+  .logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .logo-nav img {
+    width: 45%; /* Sube esto (original era 30%) a 45%, 50%, etc. */
+    height: auto;
+    min-width: 150px; /* Opcional: Fija un ancho mínimo */
+  }
   .nav-toggle {
     display: block; /* Mostrar el toggle en móvil */
     z-index: 1001; /* Asegurar que esté al frente */
