@@ -7,6 +7,9 @@ const carousel = document.getElementById("carousel"); // Contenedor del carrusel
 function moveSlide(direction) {
   const totalSlides = slides.length;
 
+  // Salir si no hay slides (evita error en otras páginas)
+  if (totalSlides === 0) return;
+
   // Calcular el nuevo índice según la dirección
   index += direction;
 
@@ -19,10 +22,11 @@ function moveSlide(direction) {
     index = totalSlides - 1;
   }
 
-  // Mover el carrusel usando la propiedad 'transform'
-  document.querySelector(".carousel-images").style.transform = `translateX(-${
-    index * 100
-  }%)`;
+  // Asegurarse de que el elemento exista antes de cambiar su estilo
+  const carouselImages = document.querySelector(".carousel-images");
+  if (carouselImages) {
+    carouselImages.style.transform = `translateX(-${index * 100}%)`;
+  }
 
   // Actualizar los indicadores
   updateIndicators();
@@ -42,58 +46,60 @@ function updateIndicators() {
 // Función para cambiar a la diapositiva actual al hacer clic en el indicador
 function currentSlide(n) {
   index = n;
-  document.querySelector(".carousel-images").style.transform = `translateX(-${
-    index * 100
-  }%)`;
+  // Asegurarse de que el elemento exista antes de cambiar su estilo
+  const carouselImages = document.querySelector(".carousel-images");
+  if (carouselImages) {
+    carouselImages.style.transform = `translateX(-${index * 100}%)`;
+  }
   updateIndicators();
 }
 
 // Función para habilitar el arrastre de la imagen
-let startX;
-let isDragging = false;
+// --- Event Listeners y Timers (Solo si el carrusel existe en la página) ---
+if (carousel) {
+  let startX;
+  let isDragging = false;
 
-carousel.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.pageX;
-  carousel.style.cursor = "grabbing"; // Cambio de cursor al arrastrar
-});
+  carousel.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.pageX;
+    carousel.style.cursor = "grabbing"; // Cambio de cursor al arrastrar
+  });
 
-carousel.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+  carousel.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
 
-  const moveX = e.pageX - startX;
-  carousel.style.transform = `translateX(${moveX}px)`;
-});
+    const moveX = e.pageX - startX;
+    carousel.style.transform = `translateX(${moveX}px)`;
+  });
 
-carousel.addEventListener("mouseup", () => {
-  isDragging = false;
-  carousel.style.cursor = "grab"; // Vuelve a poner el cursor de "grabar" al soltar
-
-  // Mover el carrusel en función de la distancia arrastrada
-  const moveDistance = parseInt(
-    carousel.style.transform.replace("translateX(", "").replace("px)", "")
-  );
-  if (moveDistance < -50) {
-    moveSlide(1); // Mover a la siguiente diapositiva si arrastra hacia la izquierda
-  } else if (moveDistance > 50) {
-    moveSlide(-1); // Mover a la diapositiva anterior si arrastra hacia la derecha
-  } else {
-    carousel.style.transform = `translateX(0px)`; // Restaurar a la posición inicial si no se arrastra lo suficiente
-  }
-});
-
-carousel.addEventListener("mouseleave", () => {
-  if (isDragging) {
+  carousel.addEventListener("mouseup", () => {
     isDragging = false;
-    carousel.style.cursor = "grab";
-    carousel.style.transform = `translateX(0px)`; // Restaurar a la posición inicial si sale del área
+    carousel.style.cursor = "grab"; // Vuelve a poner el cursor de "grabar" al soltar
+
+    // Mover el carrusel en función de la distancia arrastrada
+    const moveDistance = parseInt(
+      carousel.style.transform.replace("translateX(", "").replace("px)", "")
+    );
+    if (moveDistance < -50) {
+      moveSlide(1); // Mover a la siguiente diapositiva si arrastra hacia la izquierda
+    } else if (moveDistance > 50) {
+      moveSlide(-1); // Mover a la diapositiva anterior si arrastra hacia la derecha
+    } else {
+      carousel.style.transform = `translateX(0px)`; // Restaurar a la posición inicial si no se arrastra lo suficiente
+    }
+  });
+
+  // Inicializa el primer indicador como activo
+  updateIndicators();
+
+  // Cambiar de diapositiva automáticamente cada 10 segundos
+  setInterval(() => {
+    moveSlide(1); // Mueve al siguiente slide
+  }, 10000); // 10 segundos en milisegundos
+} else {
+  // Si el carrusel no existe, pero los indicadores sí, actualizarlos.
+  if (indicators.length > 0) {
+    updateIndicators();
   }
-});
-
-// Inicializa el primer indicador como activo
-updateIndicators();
-
-// Cambiar de diapositiva automáticamente cada 10 segundos
-setInterval(() => {
-  moveSlide(1); // Mueve al siguiente slide
-}, 10000); // 10 segundos en milisegundos
+}
