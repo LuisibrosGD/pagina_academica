@@ -189,3 +189,94 @@ footer {
   color: #4d4d4d;
   background: #ccbe8d;
 }
+
+/*=================Para moviles============================*/
+.nav-toggle {
+  display: none; /* Oculto por defecto en desktop */
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+#nav-toggle-close {
+  display: none; /* El ícono 'x' está oculto por defecto */
+}
+
+@media (max-width: 768px) {
+  /* --- NAV RESPONSIVE --- */
+  .nav-toggle {
+    display: block; /* Mostrar el toggle en móvil */
+    z-index: 1001; /* Asegurar que esté al frente */
+    color: black;
+  }
+
+  .lista-nav {
+    /* Posicionamiento fijo */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Oculto inicialmente */
+    width: 70%; /* Ocupa todo el ancho para centrar mejor */
+    height: 100vh; /* Altura completa de la pantalla */
+    background: #f6d001; /* Color de fondo */
+
+    /* Flexbox para alinear el contenido */
+    display: flex; /* Aseguramos que sea flex */
+    flex-direction: column; /* Enlaces uno debajo del otro */
+    justify-content: flex-start; /* Alineados hacia arriba, no al centro */
+    align-items: center; /* Centrados horizontalmente */
+
+    /* Espaciado */
+    padding-top: 80px; /* Espacio desde la parte superior para que no quede pegado */
+    margin: 0;
+    gap: 2rem; /* Espacio entre cada enlace */
+
+    /* Transición y capas */
+    transition: right 0.4s ease-in-out;
+    z-index: 1000; /* Por encima del resto del contenido */
+  }
+
+  /* ESTADO ACTIVO: Cuando el menú se muestra */
+  .lista-nav.active {
+    right: 0; /* Mover a la vista */
+  }
+
+  .lista-a {
+    font-size: 1.3rem;
+  }
+
+  /* --- FOOTER RESPONSIVE --- */
+  footer {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 10px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .logo-footer {
+    flex-direction: column; /* Apila logo, separador y frase */
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .logo-footer p {
+    width: 80%; /* Más ancho para móvil */
+  }
+
+  .footer-separador {
+    height: 1px; /* Separador horizontal */
+    width: 60%;
+    margin: 10px 0; /* Espacio vertical */
+  }
+
+  .footer-columna-2 {
+    padding: 10px 0; /* Menos padding */
+  }
+
+  .redes-footer {
+    gap: 15px; /* Menos espacio entre íconos */
+  }
+
+  .redes-footer a {
+    font-size: 1.8rem; /* Íconos un poco más pequeños */
+    padding: 10px; /* Menos padding */
+  }
+}
